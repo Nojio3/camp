@@ -47,11 +47,14 @@ export default function Home({ dates }) {
               rel="noopener noreferrer"
             >
               {/*　取得したデータの表示 */}
-              <>{dates && dates.map((date) => <div>{date.name}</div>)}</>
               <>
                 {dates &&
-                  dates.map((date) => (
-                    <Card name={date.name} picture={date.picture} />
+                  dates.map((date) => <div key={date.id}>{date.name}</div>)}
+              </>
+              <>
+                {dates &&
+                  dates.map((date, index) => (
+                    <Card key={index} name={date.name} picture={date.picture} />
                   ))}
               </>
               By{" "}
