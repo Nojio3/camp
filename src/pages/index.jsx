@@ -9,12 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const getStaticProps = async () => {
   const syutokusaki = await client.get({
     endpoint: "camp",
-    // queries: {
-    //   fields: "id,name,address,picture",
-    // },
     queries: {
       fields: "id,name,address,picture",
-      limit: 5,
+      // 5件取得する
+      limit: 5, 
     },
   });
 
@@ -24,6 +22,8 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+// 実際の画面の描写
 export default function Home({ dates }) {
   console.log(dates);
   return (
@@ -37,40 +37,43 @@ export default function Home({ dates }) {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
+            {/* Get started by editing&nbsp; */}
+            Camp Site List
+            {/* <code className={styles.code}>src/pages/index.js</code> */}
           </p>
           <div>
-            <a
+            {/* <a
+              // vercelに飛ぶパス
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
-            >
+            > */}
               {/*　取得したデータの表示 */}
-              <>
+              <div>
                 {dates &&
                   dates.map((date) => <div key={date.id}>{date.name}</div>)}
-              </>
-              <>
+              </div>
+              <div>
+              {/* コンポーネントの呼び出し */}
                 {dates &&
                   dates.map((date, index) => (
                     <Card key={index} name={date.name} picture={date.picture} />
                   ))}
-              </>
-              By{" "}
-              <Image
+              </div>
+              {/* By{" "} */}
+              {/* <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
                 className={styles.vercelLogo}
                 width={100}
                 height={24}
                 priority
-              />
-            </a>
+              /> */}
+            {/* </a> */}
           </div>
         </div>
-        test
-        <div className={styles.center}>
+        
+        {/* <div className={styles.center}>
           <Image
             className={styles.logo}
             src="/next.svg"
@@ -88,8 +91,8 @@ export default function Home({ dates }) {
               priority
             />
           </div>
-        </div>
-        <div className={styles.grid}>
+        </div> */}
+        {/* <div className={styles.grid}>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
@@ -146,7 +149,7 @@ export default function Home({ dates }) {
               with&nbsp;Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
     </>
   );
