@@ -12,7 +12,7 @@ export const getStaticProps = async () => {
     queries: {
       fields: "id,name,address,picture",
       // 5件取得する
-      limit: 5, 
+      limit: 5,
     },
   });
 
@@ -48,20 +48,20 @@ export default function Home({ dates }) {
               target="_blank"
               rel="noopener noreferrer"
             > */}
-              {/*　取得したデータの表示 */}
-              <div>
-                {dates &&
-                  dates.map((date) => <div key={date.id}>{date.name}</div>)}
-              </div>
-              <div>
+            {/*　取得したデータの表示 */}
+            <div>
+              {dates &&
+                dates.map((date) => <div key={date.id}>{date.name}</div>)}
+            </div>
+            <div>
               {/* コンポーネントの呼び出し */}
-                {dates &&
-                  dates.map((date, index) => (
-                    <Card key={index} name={date.name} picture={date.picture} />
-                  ))}
-              </div>
-              {/* By{" "} */}
-              {/* <Image
+              {dates &&
+                dates.map((date, index) => (
+                  <Card key={index} name={date.name} picture={date.picture} />
+                ))}
+            </div>
+            {/* By{" "} */}
+            {/* <Image
                 src="/vercel.svg"
                 alt="Vercel Logo"
                 className={styles.vercelLogo}
@@ -72,7 +72,7 @@ export default function Home({ dates }) {
             {/* </a> */}
           </div>
         </div>
-        
+
         {/* <div className={styles.center}>
           <Image
             className={styles.logo}
